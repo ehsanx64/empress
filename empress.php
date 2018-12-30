@@ -6,6 +6,7 @@ use empress\General;
 define('EMPRESS_ROOT', __DIR__);
 define('EMPRESS_MOD', __DIR__ . '/mod');
 define('EMPRESS_TEMP', EMPRESS_ROOT . '/tmp');
+define('EMPRESS_ASSETS', get_template_directory_uri() . '/asset');
 
 // Include composer autoloader
 include EMPRESS_ROOT . '/vendor/autoload.php';

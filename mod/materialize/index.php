@@ -10,3 +10,14 @@ add_action('init', function () {
 add_action('widgets_init', function() {
 	register_widget(new \empress\mod\materialize\CategoryList());
 });
+
+// Hook into wp_enqueue_scripts to include needed asset file into output page
+add_action('wp_enqueue_scripts', function() {
+	// Load assets
+	wp_enqueue_style('materialize', EMPRESS_ASSETS . "/materialize/css/materialize.css");
+	wp_enqueue_style('materialize-font-awesome', EMPRESS_ASSETS . "/materialize/css/font-awesome.css");
+//	wp_enqueue_style('materialize-rtl', EMPRESS_ASSETS . "/materialize/rtl/rtl.css");
+
+	wp_enqueue_script('materialize-jquery', EMPRESS_ASSETS . "/materialize/js/jquery.min.js", array(), false, false);
+	wp_enqueue_script('materialize', EMPRESS_ASSETS . "/materialize/js/materialize.js", array('materialize-jquery'), false, false);
+});
