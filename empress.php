@@ -28,7 +28,7 @@ class Empress {
 	}
 
 	public function __construct() {
-		\ehsanx64\phplib\General\PHP::enableFullErrorReporting();
+		\ehsanx64\phplib\PHP::enableFullErrorReporting();
 
 		if (General::isPersian()) {
 			load_textdomain('empress', __DIR__ . '/languages/empress-fa_IR.mo');
