@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ehsanx64/phplib",
-            "version": "2.0.2",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ehsanx64/phplib.git",
-                "reference": "73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b"
+                "reference": "1ba520157454f6e39691d9792ad95445d2592971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ehsanx64/phplib/zipball/73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b",
-                "reference": "73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b",
+                "url": "https://api.github.com/repos/ehsanx64/phplib/zipball/1ba520157454f6e39691d9792ad95445d2592971",
+                "reference": "1ba520157454f6e39691d9792ad95445d2592971",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "general",
                 "utility"
             ],
-            "time": "2019-01-12T20:22:51+00:00"
+            "time": "2019-01-13T10:54:33+00:00"
         }
     ],
     "packages-dev": [],
