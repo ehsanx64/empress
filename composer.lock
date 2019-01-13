@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1a838589fe6bd8a427e6e1891748f53",
+    "content-hash": "11c4fd4c1f62dc13fe1828c75afe98b1",
     "packages": [
         {
             "name": "ehsanx64/phplib",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ehsanx64/phplib.git",
-                "reference": "91653511b37eba0a7da913a2b6c2261a0799f2c9"
+                "reference": "73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ehsanx64/phplib/zipball/91653511b37eba0a7da913a2b6c2261a0799f2c9",
-                "reference": "91653511b37eba0a7da913a2b6c2261a0799f2c9",
+                "url": "https://api.github.com/repos/ehsanx64/phplib/zipball/73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b",
+                "reference": "73ef1d3dd753c288b39d4c23b7c06e37cd9dcc3b",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "general",
                 "utility"
             ],
-            "time": "2018-12-28T08:36:06+00:00"
+            "time": "2019-01-12T20:22:51+00:00"
         }
     ],
     "packages-dev": [],
