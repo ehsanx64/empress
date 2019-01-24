@@ -49,11 +49,12 @@ class Comment {
 
 	public static function filter_getCommentFormFields($fields) {
 		$field = '<div class="col-md-4 col-sm-12 comment-field">
-    <div class="form-field">
-        <i class="fa %s"></i>
-        <input type="%s" name="%s" placeholder="%s" required />
-    </div>
-</div>';
+			<div class="form-field">
+				<i class="fa %s"></i>
+				<input type="%s" name="%s" placeholder="%s" required />
+			</div>
+		</div>';
+
 		$fields['author'] = sprintf($field, 'fa-user', 'text', 'author', __('Enter your name', 'empress'));
 		$fields['email'] = sprintf($field, 'fa-envelope-o', 'email', 'email', __('Enter your email', 'empress'));
 		$fields['url'] = sprintf($field, 'fa-globe', 'url', 'url', __('Enter your website', 'empress'));
