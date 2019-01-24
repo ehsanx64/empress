@@ -15,6 +15,7 @@ add_action('widgets_init', function() {
 add_action('wp_enqueue_scripts', function() {
 	// Load assets
 	wp_enqueue_style('materialize', EMPRESS_ASSETS . "/materialize/css/materialize.css");
+	wp_enqueue_style('material-icons', EMPRESS_ASSETS . "/materialize/css/material-icons.css");
 	wp_enqueue_style('materialize-font-awesome', EMPRESS_ASSETS . "/materialize/css/font-awesome.css");
 
 	if (get_locale() == 'fa_IR') {
