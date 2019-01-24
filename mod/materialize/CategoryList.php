@@ -32,7 +32,7 @@ class CategoryList extends \WP_Widget {
 		echo $args['before_title'] . $title . $args['after_title'];
 		echo '<div>';
 //		echo '<ul class="collapsible">';
-		echo '<ul class="collection">';
+		echo '<ul class="collection empress-category-list">';
 		foreach (get_categories() as $category) {
 			printf('<li class="collection-item""><a href="%s">'
 				// For collapsible header
@@ -59,6 +59,17 @@ class CategoryList extends \WP_Widget {
 		echo '</ul>';
 //		echo '</ul>';
 		echo '</div>';
+		?>
+			<style type="text/css" rel="stylesheet">
+				ul.collection.empress-category-list {
+					border: none;
+				}
+
+				ul.collection.empress-category-list .collection-item {
+					padding: 10px 0px;
+				}
+			</style>
+		<?php
 		echo $args['after_widget'];
 	}
 
