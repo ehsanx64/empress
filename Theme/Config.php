@@ -23,7 +23,7 @@ class Config {
 		add_image_size('medium', 880, 530, true);
 		//		add_image_size('small', 360, 180, true);
 		add_image_size('small', 640, 420, true);
-		add_image_size('thumbnail', 540, 320, true);
+		add_image_size('thumbnail', 500, 500, true);
 
 		register_nav_menus(array(
 			'main-nav-menu' => __('Main navigation menu', 'empress'),
