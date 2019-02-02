@@ -28,7 +28,15 @@ class Post {
 	 * @param int|string $postId The post id
 	 * @return string The formatted date string
 	 */
-	public static function getDisplayPostModifiedDate($postId) {
-		return date('d F Y', self::getPostModifiedDate($postId));
+	public static function getDisplayPostModifiedDate($postId = '') {
+		$id = $postId;
+
+		if (empty($id)) {
+			$id = get_the_ID();
+		}
+
+		return General::isPersian()
+			? get_the_modified_date('', $id)
+			: date('d F Y', self::getPostModifiedDate($id));
 	}
 }
