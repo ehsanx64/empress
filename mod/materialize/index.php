@@ -14,7 +14,7 @@ add_action('widgets_init', function() {
 // Hook into wp_enqueue_scripts to include needed asset file into output page
 add_action('wp_enqueue_scripts', function() {
 	// Load assets
-	wp_enqueue_style('materialize', EMPRESS_ASSETS . "/materialize/css/materialize.css");
+	wp_enqueue_style('materialize', EMPRESS_ASSETS . "/materialize/css/materialize.min.css");
 	wp_enqueue_style('material-icons', EMPRESS_ASSETS . "/materialize/css/material-icons.css");
 	wp_enqueue_style('materialize-font-awesome', EMPRESS_ASSETS . "/materialize/css/font-awesome.css");
 
@@ -23,5 +23,5 @@ add_action('wp_enqueue_scripts', function() {
 	}
 
 	wp_enqueue_script('materialize-jquery', EMPRESS_ASSETS . "/materialize/js/jquery.min.js", array(), false, false);
-	wp_enqueue_script('materialize', EMPRESS_ASSETS . "/materialize/js/materialize.js", array('materialize-jquery'), false, false);
+	wp_enqueue_script('materialize', EMPRESS_ASSETS . "/materialize/js/materialize.min.js", array('materialize-jquery'), false, false);
 });
