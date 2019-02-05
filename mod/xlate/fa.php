@@ -4,5 +4,6 @@ return [
 	'Ehsan Mohammadi' => 'احسان محمدی',
 	'By' => 'نوشته',
 	'Last Update' => 'آخرین بروزرسانی',
-	'Hello' => 'سلام'
+	'Hello' => 'سلام',
+	'%s views' => '%s بازدید'
 ];
