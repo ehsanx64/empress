@@ -12,4 +12,10 @@ class General {
 
 		return false;
 	}
+
+	public static function disableHeartbeat() {
+		add_action( 'init', function () {
+			wp_deregister_script('heartbeat');
+		}, 1 );
+	}
 }
