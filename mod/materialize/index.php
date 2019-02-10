@@ -3,7 +3,7 @@
 
 add_action('init', function () {
 	empress()->main->setCommentWalker(new \empress\mod\materialize\CommentWalker);
-	new \empress\mod\materialize\empress_md_slider();
+//	new \empress\mod\materialize\empress_md_slider();
 
 });
 
