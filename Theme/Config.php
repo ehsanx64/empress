@@ -18,10 +18,8 @@ class Config {
 		));
 
 		Support::addPostThumbnails();
-		//        set_post_thumbnail_size(1200, 9999);
 		add_image_size('large', 1024, 830, true);
 		add_image_size('medium', 880, 530, true);
-		//		add_image_size('small', 360, 180, true);
 		add_image_size('small', 640, 420, true);
 		add_image_size('thumbnail', 500, 500, true);
 

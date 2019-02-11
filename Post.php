@@ -39,4 +39,22 @@ class Post {
 			? get_the_modified_date('', $id)
 			: date('d F Y', self::getPostModifiedDate($id));
 	}
+
+	/**
+	 * Query database for a post with the given guid.
+	 *
+	 * @param $guid string The guid to search
+	 * @return bool|string If a post with such guid exists return its ID as string. Returns False
+	 * 	if no post with the given guid found.
+	 */
+	public static function getPostByGuid($guid) {
+		global $wpdb;
+		$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $guid ));
+
+		if (!is_array($attachment) || count($attachment) < 1) {
+			return false;
+		}
+
+		return $attachment[0];
+	}
 }
