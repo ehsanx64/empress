@@ -6,13 +6,21 @@ class CustomPostType extends Post {
     protected $pluralKey;
     protected $labels;
 
+	/**
+	 * CustomPostType constructor.
+	 *
+	 * Register a new custom post type.
+	 * @param array $params New custom post type parameters:
+	 * 		@param labels: ['post', 'posts']	- The single and plural name of the new CPT
+	 *
+	 */
     public function __construct($params = []) {
         if (is_array($params) && !empty($params)) {
             if (isset($params['labels'])) {
                 $this->singleKey = $params['labels'][0];
                 $this->pluralKey = $params['labels'][1];
                 $this->labels = $this->getLabels($this->singleKey, $this->pluralKey);
-                $this->registerPostType($this->$singleKey, $this->labels, []);
+                $this->registerPostType($this->singleKey, $this->labels, []);
             }
         }
     }
@@ -60,16 +68,16 @@ class CustomPostType extends Post {
 			'taxonomies' => $taxonomies,
 			'public' => true,
 			'show_ui' => true,
+			'show_in_menu' => true,
 			'publicly_queryable' => true,
 			'query_var'          => true,
 			'has_archive'        => true,
 			'hierarchical'       => true,
-			'menu_position'      => null,
 			'supports'           => ['title', 'editor', 'author', 'thumbnail', 'excerpt'],
-			'menu_icon' => EMPRESS_ASSETS . '/melkemomtaz/favicon.png'
+//			'menu_icon' => EMPRESS_ASSETS . '/melkemomtaz/favicon.png'
 		];
-
 		register_post_type($key, $args);
-    }
+		flush_rewrite_rules();
+	}
 }
 
