@@ -1,4 +1,5 @@
 <?php
+
 namespace empress\mod\materialize;
 
 class CommentWalker extends \Walker_Comment {
@@ -230,11 +231,11 @@ class CommentWalker extends \Walker_Comment {
 	protected function ping($comment, $depth, $args) {
 		$tag = ('div' == $args['style']) ? 'div' : 'li';
 		?>
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('', $comment); ?>>
-		<div class="comment-body">
-			<?php _e('Pingback:'); ?> <?php comment_author_link($comment); ?> <?php edit_comment_link(__('Edit'), '<span class="edit-link">', '</span>'); ?>
-		</div>
-	<?php
+        <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('', $comment); ?>>
+        <div class="comment-body">
+			<?php _e('Pingback:'); ?><?php comment_author_link($comment); ?><?php edit_comment_link(__('Edit'), '<span class="edit-link">', '</span>'); ?>
+        </div>
+		<?php
 	}
 
 	/**
@@ -258,15 +259,17 @@ class CommentWalker extends \Walker_Comment {
 			$add_below = 'div-comment';
 		}
 		?>
-		<<?php echo $tag; ?> <?php comment_class($this->has_children ? 'parent' : '', $comment); ?> id="comment-<?php comment_ID(); ?>">
+        <<?php echo $tag; ?><?php comment_class($this->has_children ? 'parent' : '', $comment); ?> id="comment-<?php comment_ID(); ?>">
 		<?php if ('div' != $args['style']) : ?>
-			<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+            <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 		<?php endif; ?>
-		<div class="comment-author-avatar">
+        <div class="comment-author-avatar">
 			<?php if (0 != $args['avatar_size']) {
-				echo get_avatar($comment, $args['avatar_size'], '', '', [
-                    'class' => 'circle'
-                ]);
+				echo get_avatar(
+					$comment, $args['avatar_size'], '', '', [
+						'class' => 'circle'
+					]
+				);
 			} ?>
 			<?php
 			/* translators: %s: comment author link */
@@ -274,48 +277,48 @@ class CommentWalker extends \Walker_Comment {
 				__('%s <span class="says">says:</span>'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link($comment))
 			);
 			?>
-		</div>
+        </div>
 		<?php if ('0' == $comment->comment_approved) : ?>
-			<em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
-			<br/>
+            <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
+            <br/>
 		<?php endif; ?>
 
-		<div class="comment-meta commentmetadata">
-			<a href="<?php echo esc_url(get_comment_link($comment, $args)); ?>">
+        <div class="comment-meta commentmetadata">
+            <a href="<?php echo esc_url(get_comment_link($comment, $args)); ?>">
 				<?php
 				/* translators: 1: comment date, 2: comment time */
 				printf(__('%1$s at %2$s'), get_comment_date('', $comment), get_comment_time()); ?></a><?php edit_comment_link(__('(Edit)'), '&nbsp;&nbsp;', '');
 			?>
-		</div>
+        </div>
 
 		<?php comment_text(
 			$comment, array_merge(
-			$args, array(
-			'add_below' => $add_below,
-			'depth' => $depth,
-			'max_depth' => $args['max_depth']
-		)
-		)
+				$args, array(
+					'add_below' => $add_below,
+					'depth' => $depth,
+					'max_depth' => $args['max_depth']
+				)
+			)
 		); ?>
 
 		<?php
 		comment_reply_link(
 			array_merge(
 				$args, array(
-				'add_below' => $add_below,
-				'depth' => $depth,
-				'max_depth' => $args['max_depth'],
-				'before' => '<div class="reply">',
-				'after' => '</div>'
-			)
+					'add_below' => $add_below,
+					'depth' => $depth,
+					'max_depth' => $args['max_depth'],
+					'before' => '<div class="reply">',
+					'after' => '</div>'
+				)
 			)
 		);
 		?>
 
 		<?php if ('div' != $args['style']) : ?>
-			</div>
+            </div>
 		<?php endif; ?>
-	<?php
+		<?php
 	}
 
 	/**
@@ -333,22 +336,24 @@ class CommentWalker extends \Walker_Comment {
 	protected function html5_comment($comment, $depth, $args) {
 		$tag = ('div' === $args['style']) ? 'div' : 'li';
 		?>
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent': '', $comment); ?>>
+        <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : '', $comment); ?>>
         <div class="col s12 comment-author">
             <div class="avatar">
 				<?php if (0 != $args['avatar_size']) {
-					echo get_avatar($comment, $args['avatar_size'], '', '', [
-						'class' => 'circle'
-					]);
+					echo get_avatar(
+						$comment, $args['avatar_size'], '', '', [
+							'class' => 'circle'
+						]
+					);
 				} ?>
             </div>
             <div class="name"><?php comment_author(); ?></div>
             <time class="date" datetime="<?php comment_time('c'); ?>">
-                <?php if (get_locale() == 'en_US'): ?>
+				<?php if (get_locale() == 'en_US'): ?>
 					<?php echo date('M d, Y   H:i', strtotime($comment->comment_date)); ?>
-                <?php else: ?>
-				    <?php comment_date('', $comment); ?> - <?php comment_time(); ?>
-                <?php endif; ?>
+				<?php else: ?>
+					<?php comment_date('', $comment); ?> - <?php comment_time(); ?>
+				<?php endif; ?>
             </time>
         </div>
 
@@ -365,25 +370,31 @@ class CommentWalker extends \Walker_Comment {
             </div>
         </div>
 
-		<div class="comment-body comment-info">
+        <div class="comment-body comment-info">
 
 			<?php
-			echo preg_replace('/comment-reply-link/', 'comment-reply-link btn btn-dark', get_comment_reply_link(array_merge($args, array(
-				'class' => 'btn btn-dark',
-				'add_below' => 'div-comment',
-				'depth' => $depth,
-				'max_depth' => $args['max_depth'],
-				'before' => '<div class="comment-reply">',
-				'after' => '</div>'
-			))));
+			echo preg_replace(
+				'/comment-reply-link/', 'comment-reply-link btn btn-dark', get_comment_reply_link(
+					array_merge(
+						$args, array(
+							'class' => 'btn btn-dark',
+							'add_below' => 'div-comment',
+							'depth' => $depth,
+							'max_depth' => $args['max_depth'],
+							'before' => '<div class="comment-reply">',
+							'after' => '</div>'
+						)
+					)
+				)
+			);
 			?>
 
 			<?php if (current_user_can('edit_comment', get_comment_ID())): ?>
-				<div class="comment-content-edit-link">
+                <div class="comment-content-edit-link">
 					<?php edit_comment_link(__('Edit', 'empress')); ?>
-				</div>
+                </div>
 			<?php endif; ?>
-		</div>
-	<?php
+        </div>
+		<?php
 	}
 }
