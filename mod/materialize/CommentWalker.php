@@ -334,30 +334,38 @@ class CommentWalker extends \Walker_Comment {
 		$tag = ('div' === $args['style']) ? 'div' : 'li';
 		?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent': '', $comment); ?>>
-		<div class="comment-avatar">
-			<?php if (0 != $args['avatar_size']) {
-				echo get_avatar($comment, $args['avatar_size'], '', '', [
-                    'class' => 'circle'
-                ]);
-			} ?>
-		</div>
-		<div class="comment-body comment-info">
-			<div class="user-name"><b><?php comment_author(); ?></b></div>
+        <div class="col s12 comment-author">
+            <div class="avatar">
+				<?php if (0 != $args['avatar_size']) {
+					echo get_avatar($comment, $args['avatar_size'], '', '', [
+						'class' => 'circle'
+					]);
+				} ?>
+            </div>
+            <div class="name"><?php comment_author(); ?></div>
+            <time class="date" datetime="<?php comment_time('c'); ?>">
+                <?php if (get_locale() == 'en_US'): ?>
+					<?php echo date('M d, Y   H:i', strtotime($comment->comment_date)); ?>
+                <?php else: ?>
+				    <?php comment_date('', $comment); ?> - <?php comment_time(); ?>
+                <?php endif; ?>
+            </time>
+        </div>
 
-			<time class="comment-date" datetime="<?php comment_time('c'); ?>">
-				<?php comment_date('', $comment); ?> - <?php comment_time(); ?>
-			</time>
-
-			<div class="comment-content comment-message">
+        <div class="col s12">
+            <div class="comment-content comment-message">
 				<?php comment_text(); ?>
 
 
 				<?php if (0 == $comment->comment_approved): ?>
-					<div class="comment-moderation-note">
-						<p><?php _e('Your comment is not approved yet', 'empress'); ?></p>
-					</div>
+                    <div class="comment-moderation-note">
+                        <p><?php _e('Your comment is not approved yet', 'empress'); ?></p>
+                    </div>
 				<?php endif; ?>
-			</div>
+            </div>
+        </div>
+
+		<div class="comment-body comment-info">
 
 			<?php
 			echo preg_replace('/comment-reply-link/', 'comment-reply-link btn btn-dark', get_comment_reply_link(array_merge($args, array(
